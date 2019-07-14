@@ -124,12 +124,14 @@ public class RNMailComposeModule extends ReactContextBaseJavaModule {
                     }
 
                     if (tempFile != null) {
-                        if(Build.VERSION.SDK_INT < Build.VERSION_CODES.N){
-                            uris.add(Uri.fromFile(tempFile));
-                        }else{
-                            uris.add(FileProvider.getUriForFile(this.getReactApplicationContext(),
-                                    this.getReactApplicationContext().getPackageName() + ".provider", tempFile));
-                        }
+                        uris.add(FileProvider.getUriForFile(this.getReactApplicationContext(),
+                            this.getReactApplicationContext().getPackageName() + ".provider", tempFile));
+//                         if(Build.VERSION.SDK_INT < Build.VERSION_CODES.N){
+//                             uris.add(Uri.fromFile(tempFile));
+//                         }else{
+//                             uris.add(FileProvider.getUriForFile(this.getReactApplicationContext(),
+//                                     this.getReactApplicationContext().getPackageName() + ".provider", tempFile));
+//                         }
                     }
                 }
             }
